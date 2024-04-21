@@ -33,3 +33,5 @@ const MoviesPage = () => {
     //       </Formik>
     //     <Toaster position="top.right" /></div>)
 }
+
+export default MoviesPage;
