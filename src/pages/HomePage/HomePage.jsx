@@ -1,7 +1,9 @@
-import { fetchPopularMovies } from '../../js/apiSevice.js';
-import { ErrorMessage, Loader, LoadMoreBtn, MovieList } from '../../components/index.js';
+import { fetchPopularMovies } from '../../Js/api';
+import LoadMoreBtn from '../../components/LoadMoreBtn/LoadMoreBtn';
+import Loader from '../../components/Loader/Loader';
+import MovieList from '../../components/MovieList/MovieList';
 import css from './HomePage.module.css';
-
+import { useState, useEffect} from 'react';
 function HomePage() {
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
