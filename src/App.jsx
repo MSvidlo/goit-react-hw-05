@@ -1,25 +1,19 @@
 import { Routes, Route, NavLink } from 'react-router-dom';
 import HomePage from "./pages/HomePage/HomePage";
 import MovieDetailsPage from "./pages/MovieDetailsPage/MovieDetailsPage";
-import NotFoundPage from "./components/NotFoundPage/NotFoundPage";
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import MoviesPage from "./pages/MoviesPage/MoviesPage";
 import MovieCast from './components/MovieCast/MovieCast';
-
+import {NavBar} from './components/NavBar/NavBar'
 import css from './App.module.css'
 import MovieReviews from './components/MovieReviews/MovieReviews';
 
 export const App = () => {
+
   return (
     <div className={css.container}>
       <header className={css.header}>
-        <nav className={css.nav}>
-           <NavLink to="/" className={css.homePage}>
-            Home
-          </NavLink>
-          <NavLink to="/movies" className={css.movie}>
-            Movies
-          </NavLink>
-        </nav>
+       <NavBar/>
 </header>
     
       <Routes>
