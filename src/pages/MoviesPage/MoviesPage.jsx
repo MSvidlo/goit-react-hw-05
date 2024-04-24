@@ -10,10 +10,7 @@ import ErrorMessage from '../../components/ErrorMassage/ErrorMassage';
 
 function MoviesPage() {
   const [params, setParams] = useSearchParams();
-  const [query, setQuery] = useState(() => {
-    const queryParam = params.get('query');
-    return queryParam || '';
-  });
+ 
   const [moviesData, setMoviesData] = useState([]);
   const [isFetching, setIsFetching] = useState(false);
   const [error, setError] = useState(null);
@@ -34,14 +31,14 @@ function MoviesPage() {
       }
     };
 
-        if (query) {
+     
             fetchData();
-        }
-  }, [query]);
+   
+  }, [params]);
 
  
   function handleSearchChange(newQuery) {
- setQuery(newQuery);
+    setParams({ query: newQuery });
   
     setPage(1);
   }
@@ -54,7 +51,7 @@ function MoviesPage() {
     <div>
       <MovieSerchForm handleSearchChange={handleSearchChange} />
       {moviesData && moviesData.length > 0 ? <MovieList movies={moviesData} /> : null}
-     {!moviesData || moviesData.length === 0 && <p>No movies found</p>}
+     {(!moviesData || moviesData.length === 0)   && <p>No movies found</p>}
       {isFetching && <Loader />}
       {error && <ErrorMessage />}
       {moviesData.length > 0 && <LoadMoreBtn handleSeeMoreClick={handleSeeMoreClick} isFetching={isFetching} />}
