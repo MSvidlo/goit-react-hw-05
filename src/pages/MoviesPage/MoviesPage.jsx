@@ -22,7 +22,7 @@ function MoviesPage() {
         const fetchData = async () => {
              setIsFetching(true);
       try {
-        const data = await fetchMovieWithKeyWord(query);
+        const data = await fetchMovieWithKeyWord(query,page);
           setMoviesData(data);
       } catch (err) {
         setError(err);
