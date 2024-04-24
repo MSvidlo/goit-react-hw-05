@@ -22,8 +22,8 @@ function MoviesPage() {
         const fetchData = async () => {
              setIsFetching(true);
       try {
-        const data = await fetchMovieWithKeyWord(query,page);
-          setMoviesData(data);
+        const data = await fetchMovieWithKeyWord(query);
+          setMoviesData(data.results);
       } catch (err) {
         setError(err);
       } finally {
@@ -51,7 +51,7 @@ function MoviesPage() {
     <div>
       <MovieSerchForm handleSearchChange={handleSearchChange} />
       {moviesData && moviesData.length > 0 ? <MovieList movies={moviesData} /> : null}
-     {(!moviesData || moviesData.length === 0)   && <p>No movies found</p>}
+     {(! moviesData.length === 0)   && <p>No movies found</p>}
       {isFetching && <Loader />}
       {error && <ErrorMessage />}
       {moviesData.length > 0 && <LoadMoreBtn handleSeeMoreClick={handleSeeMoreClick} isFetching={isFetching} />}
