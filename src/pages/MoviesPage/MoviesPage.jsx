@@ -15,15 +15,18 @@ function MoviesPage() {
   const [isFetching, setIsFetching] = useState(false);
   const [error, setError] = useState(null);
   const [page, setPage] = useState(1);
-
+    const [hasNextPage, setHasNextPage] = useState(false);
+    const [searched, setSearched] = useState(false);
+    
     useEffect(() => {
       const query = params.get('query');
         if (!query) return;
         const fetchData = async () => {
              setIsFetching(true);
       try {
-        const data = await fetchMovieWithKeyWord(query);
-          setMoviesData(data.results);
+        const data = await fetchMovieWithKeyWord(query,page);
+          setMoviesData(prevData => [...prevData, ...data.results]); // Додавання нових фільмів до поточного масиву
+        setHasNextPage(data.page < data.total_pages);
       } catch (err) {
         setError(err);
       } finally {
@@ -31,16 +34,17 @@ function MoviesPage() {
       }
     };
 
-     
+     setSearched(true);
             fetchData();
    
-  }, [params]);
+  }, [params,page]);
 
  
   function handleSearchChange(newQuery) {
     setParams({ query: newQuery });
   
-    setPage(1);
+      setPage(1);
+       setSearched(false);
   }
 
   function handleSeeMoreClick() {
@@ -50,11 +54,11 @@ function MoviesPage() {
   return (
     <div>
       <MovieSerchForm handleSearchChange={handleSearchChange} />
-      {moviesData && moviesData.length > 0 ? <MovieList movies={moviesData} /> : null}
-     {(! moviesData.length === 0)   && <p>No movies found</p>}
+      {searched && moviesData.length > 0 ? <MovieList movies={moviesData} /> : null}
+     {searched && !isFetching && moviesData.length === 0 && <p>No movies found</p>}
       {isFetching && <Loader />}
       {error && <ErrorMessage />}
-      {moviesData.length > 0 && <LoadMoreBtn handleSeeMoreClick={handleSeeMoreClick} isFetching={isFetching} />}
+      {searched && hasNextPage && <LoadMoreBtn handleSeeMoreClick={handleSeeMoreClick} isFetching={isFetching} />}
     </div>
   );
 }

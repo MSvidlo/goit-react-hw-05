@@ -38,7 +38,7 @@ function MovieDetailsPage() {
       return <div>
     {isFetching && <Loader />}
     {error && <ErrorMessage />}
-      <button className={css.goBackBtn}><Link to={backLinkHref}>Go Back</Link></button>
+      <button className={css.goBackBtn}><Link to={backLinkHref} className={css.link}>Go Back</Link></button>
     <MovieDetails movieData={details} />
     <Outlet />
   </div>;
