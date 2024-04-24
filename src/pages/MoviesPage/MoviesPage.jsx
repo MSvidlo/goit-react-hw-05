@@ -19,20 +19,14 @@ function MoviesPage() {
   const [error, setError] = useState(null);
   const [page, setPage] = useState(1);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      setIsFetching(true);
+    useEffect(() => {
+      const query = params.get('query');
+        if (!query) return;
+        const fetchData = async () => {
+             setIsFetching(true);
       try {
         const data = await fetchMovieWithKeyWord(query, page);
-        setMoviesData((prevData) => ({
-          pages: [
-            ...prevData.pages,
-            {
-              page: page,
-              results: data,
-            },
-          ],
-        }));
+          setMoviesData(data);
       } catch (err) {
         setError(err);
       } finally {
@@ -41,13 +35,12 @@ function MoviesPage() {
     };
 
     fetchData();
-  }, [query, page]);
+  }, [query]);
 
  
   function handleSearchChange(newQuery) {
-    params.set('query', newQuery);
-    setParams(params);
-    setQuery(newQuery);
+  setParams({query: newQuery});
+  
     setPage(1);
   }
 
@@ -59,7 +52,7 @@ function MoviesPage() {
     <div>
       <MovieSerchForm handleSearchChange={handleSearchChange} />
       {moviesData.length ? <MovieList movies={moviesData} />:null}
-      {moviesData.pages.length === 0 && <p>No movies found</p>}
+      {moviesData.length && <p>No movies found</p>}
       {isFetching && <Loader />}
       {error && <ErrorMessage />}
       {moviesData.length > 0 && <LoadMoreBtn handleSeeMoreClick={handleSeeMoreClick} isFetching={isFetching} />}
