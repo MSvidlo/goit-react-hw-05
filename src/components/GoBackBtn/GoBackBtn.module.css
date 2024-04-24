@@ -1,0 +1,23 @@
+.buttonWrapper {
+    margin-bottom: 20px;
+}
+
+.button {
+    padding: 10px;
+    background-color: lightpink;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 25px;
+    transition-duration: 0.4s;
+}
+
+.button:active,
+.button:hover {
+    background-color: #ff69b4;
+    transform: translateY(2px);
+}
+
+.buttonLink {
+    color: inherit;
+}

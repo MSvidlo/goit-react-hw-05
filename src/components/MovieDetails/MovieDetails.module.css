@@ -1,0 +1,44 @@
+.movieDetailsPageWrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.movieDetailsWrapper {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.bold {
+    font-size: 25px;
+    font-weight: bold
+}
+
+.overview {
+    text-align: justify
+}
+
+.genresList {
+    display: flex;
+    gap: 10px;
+}
+
+.genreName {
+    font-size: 20px;
+}
+
+.subpageList {
+    padding: 15px 0 15px 0;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 -4px 8px rgba(0, 0, 0, 0.1);
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+}
+
+.subpageListItem {
+    font-size: 30px;
+}
