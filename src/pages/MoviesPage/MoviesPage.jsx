@@ -35,6 +35,7 @@ function MoviesPage() {
     };
 
      setSearched(true);
+     setMoviesData([]);
             fetchData();
    
   }, [params,page]);

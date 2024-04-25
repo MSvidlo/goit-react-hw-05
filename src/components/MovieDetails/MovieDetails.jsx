@@ -1,11 +1,12 @@
 import css from './MovieDetails.module.css'
 import { CONSTANTS } from '../../Js/constants';
-import { Link } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 function MovieDetails ({movieData})
-{const { poster_path: moviePoster, genres, title, overview, vote_average: userScore, release_date } = movieData || {};
+{const { poster_path: moviePoster, genres, title, overview, vote_average: userScore, release_date} = movieData || {};
   const releaseYear = new Date(release_date).getFullYear();
-    
+ const { movieId } = useParams();
+
     return (
     movieData && (
       <div className={css.movieDetailsPageWrapper}>
@@ -24,8 +25,8 @@ function MovieDetails ({movieData})
         </div>
 
         <ul className={css.subpageList}>
-          <li className={css.subpageListItem}><Link to="cast">Cast</Link></li>
-          <li className={css.subpageListItem}><Link to="reviews">Reviews</Link></li>
+          <li className={css.subpageListItem}><Link to={`/movie/${movieId}/cast`}>Cast</Link></li>
+          <li className={css.subpageListItem}><Link to={`/movie/${movieId}/reviews`}>Reviews</Link></li>
         </ul>
       </div>
     )
