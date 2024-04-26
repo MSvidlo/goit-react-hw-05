@@ -13,9 +13,11 @@ function MovieDetailsPage() {
     const [isFetching, setIsFetching] = useState(false);
     const [error, setError] = useState(null);
     const [details, setDetails] = useState(null);
-    const location = useLocation();  
+   const location = useLocation();
+  const locationRef = useRef(location.state);
+
    
- const backLinkHref = location.state ?? "/movies";
+ 
     const { movieId } = useParams();
     useEffect(() => {
         const fetchData = async () => {
@@ -38,7 +40,7 @@ function MovieDetailsPage() {
       return <div>
     {isFetching && <Loader />}
     {error && <ErrorMessage />}
-      <button className={css.goBackBtn}><Link to={backLinkHref} className={css.link}>Go Back</Link></button>
+       <GoBackBtn route={locationRef.current ? locationRef.current : '/movies'} />
     <MovieDetails movieData={details} />
     <Outlet />
   </div>;
