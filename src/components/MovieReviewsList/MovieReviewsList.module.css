@@ -1,0 +1,14 @@
+.listItem {
+    padding: 15px;
+    border: 1px solid lightpink;
+    border-radius: 10px;
+}
+
+.listItem:not(:last-child) {
+    margin-bottom: 40px;
+}
+
+.reviewContent {
+    text-align: justify;
+    line-height: 1.5;
+}

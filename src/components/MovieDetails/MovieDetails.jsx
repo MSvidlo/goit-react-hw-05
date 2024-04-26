@@ -25,8 +25,8 @@ function MovieDetails ({movieData})
         </div>
 
         <ul className={css.subpageList}>
-          <li className={css.subpageListItem}><Link to={`/movie/${movieId}/cast`}>Cast</Link></li>
-          <li className={css.subpageListItem}><Link to={`/movie/${movieId}/reviews`}>Reviews</Link></li>
+          <li className={css.subpageListItem}><Link to='cast'>Cast</Link></li>
+          <li className={css.subpageListItem}><Link to={"reviews"}>Reviews</Link></li>
         </ul>
       </div>
     )

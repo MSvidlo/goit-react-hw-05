@@ -1,5 +1,4 @@
 .castList {
-    display: flex;
-    flex-wrap: wrap;
+   width: 200px;
     gap: 15px;
 }
