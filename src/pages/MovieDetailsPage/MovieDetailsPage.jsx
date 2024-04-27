@@ -7,7 +7,7 @@ import Loader from '../../components/Loader/Loader';
 import { useEffect,useState } from 'react';
 import MovieDetails from '../../components/MovieDetails/MovieDetails'
 import GoBackBtn from '../../components/GoBackBtn/GoBackBtn.jsx';
-import css from './MovieDetailsPage.module.css';
+ 
 
 function MovieDetailsPage() {
     const [isFetching, setIsFetching] = useState(false);
