@@ -1,21 +1,23 @@
 import { Routes, Route, NavLink } from 'react-router-dom';
-import HomePage from "./pages/HomePage/HomePage";
-import MovieDetailsPage from "./pages/MovieDetailsPage/MovieDetailsPage";
-import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
-import MoviesPage from "./pages/MoviesPage/MoviesPage";
-import MovieCast from './components/MovieCast/MovieCast';
-import {NavBar} from './components/NavBar/NavBar'
+const HomePage = React.lazy(() => import("./pages/HomePage/HomePage"));
+const MovieDetailsPage = React.lazy(() => import("./pages/MovieDetailsPage/MovieDetailsPage"));
+const NotFoundPage = React.lazy(() => import("./pages/NotFoundPage/NotFoundPage"));
+const MoviesPage = React.lazy(() => import("./pages/MoviesPage/MoviesPage"));
+const MovieCast = React.lazy(() => import("./components/MovieCast/MovieCast"));
+const MovieReviews = React.lazy(() => import("./components/MovieReviews/MovieReviews"));
+import {Navigations } from './components/Navigations/NavBar'
 import css from './App.module.css'
-import MovieReviews from './components/MovieReviews/MovieReviews';
+import React, { Suspense } from 'react';
+
 
 export const App = () => {
 
   return (
     <div className={css.container}>
       <header className={css.header}>
-       <NavBar/>
+       <Navigations />
 </header>
-    
+     <Suspense fallback={<Loader />}>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/movies" element={<MoviesPage />} />
@@ -24,7 +26,8 @@ export const App = () => {
         <Route path="/movies/:movieId/reviews" element={<MovieReviews />} />
           </Route>
         <Route path="*" element={<NotFoundPage />} />
-      </Routes>
+        </Routes>
+        </Suspense>
     </div>
   );
 };
