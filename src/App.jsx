@@ -1,6 +1,6 @@
 import { Routes, Route, NavLink } from 'react-router-dom';
 import React, { Suspense } from 'react';
-import { Navigation,MovieCast,MovieReviews,Loader,ErrorMessage } from './components/index';
+import { Navigation,MovieCast,MovieReviews,Loader} from './components/index';
 import { HomePage,MoviesPage,MovieDetailsPage,NotFoundPage } from './pages/index';
 import css from './App.module.css'
 
@@ -8,12 +8,12 @@ import css from './App.module.css'
 export const App = () => {
 
   return <>
-     <Suspense fallback={<Loader />}></Suspense>
+     <Suspense fallback={<Loader />}>
       <header className={css.header}>
        <Navigation />
       </header>
       <main>
-      <Routes forceRefresh={true}>
+      <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/movies" element={<MoviesPage />} />
         <Route path="/movies/:movieId" element={<MovieDetailsPage />}>
@@ -23,7 +23,7 @@ export const App = () => {
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </main>
-      <Suspense/>
+      </Suspense>
        </>;
 };
 export default App

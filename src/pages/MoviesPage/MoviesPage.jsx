@@ -1,4 +1,4 @@
-import { MovieList,Loader,MovieSearchForm, ErrorMessage} from '../../components/index';
+import { MovieList,Loader,MovieSearchForm, ErrorMessage,LoadMoreBtn} from '../../components/index';
 import { useState, useEffect } from 'react';
 import { fetchMovieWithKeyWord } from '../../Js/api';
 import { useSearchParams } from 'react-router-dom';
