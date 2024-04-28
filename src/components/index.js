@@ -1,0 +1,12 @@
+export { default as MovieCast } from './MovieCast/MovieCast.jsx';
+export { default as MovieReviews } from './MovieReviews/MovieReviews.jsx';
+export { default as MovieList } from './MovieList/MovieList.jsx';
+export { default as GoBackBtn } from './GoBackBtn/GoBackBtn.jsx';
+export { default as Navigation} from './Navigation/Navigation.jsx';
+export { default as Loader } from './Loader/Loader.jsx';
+export { default as MovieDetails } from './MovieDetails/MovieDetails.jsx';
+export { default as CastMemberCard } from './CastMemberCard/CastMemberCard.jsx';
+export { default as ErrorMessage } from './ErrorMassage/ErrorMassage.jsx';
+export { default as MovieReviewsList } from './MovieReviewsList/MovieReviewsList.jsx';
+export { default as MovieSearchForm } from './MovieSearchForm/MovieSearchForm.jsx';
+export { default as LoadMoreBtn } from './LoadMoreBtn/LoadMoreBtn.jsx';

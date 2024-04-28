@@ -1,11 +1,7 @@
-import LoadMoreBtn from '../../components/LoadMoreBtn/LoadMoreBtn';
-import Loader from '../../components/Loader/Loader';
-import MovieList from '../../components/MovieList/MovieList';
+import { MovieList,Loader,MovieSearchForm, ErrorMessage} from '../../components/index';
 import { useState, useEffect } from 'react';
 import { fetchMovieWithKeyWord } from '../../Js/api';
 import { useSearchParams } from 'react-router-dom';
-import MovieSerchForm from '../../components/MovieSearchForm/MovieSearchForm'
-import ErrorMessage from '../../components/ErrorMassage/ErrorMassage';
 
 
 function MoviesPage() {
@@ -54,7 +50,7 @@ function MoviesPage() {
 
   return (
     <div>
-      <MovieSerchForm handleSearchChange={handleSearchChange} />
+      <MovieSearchForm handleSearchChange={handleSearchChange} />
       {searched && moviesData.length > 0 ? <MovieList movies={moviesData} /> : null}
      {searched && !isFetching && moviesData.length === 0 && <p>No movies found</p>}
       {isFetching && <Loader />}

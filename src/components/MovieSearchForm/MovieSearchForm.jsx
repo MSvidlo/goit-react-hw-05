@@ -1,6 +1,6 @@
 import css from './MovieSearchForm.module.css'
 
-const MovieSearchForm = ({ handleSearchChange }) => {
+function MovieSearchForm ({ handleSearchChange }) {
   function handleSubmit(e) {
     e.preventDefault();
     handleSearchChange(e.target.elements.movieSearch.value);

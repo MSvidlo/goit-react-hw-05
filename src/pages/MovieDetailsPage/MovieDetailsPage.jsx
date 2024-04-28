@@ -1,13 +1,9 @@
 import { fetchMovieDetails } from '../../Js/api';
 import {Link, Outlet, useLocation, useParams } from 'react-router-dom';
 import { useRef } from 'react';
-import ErrorMessage from '../../components/ErrorMassage/ErrorMassage';
-import LoadMoreBtn from '../../components/LoadMoreBtn/LoadMoreBtn';
-import Loader from '../../components/Loader/Loader';
+import { MovieDetails, ErrorMessage, Loader,GoBackBtn} from '../../components/index';
 import { useEffect,useState } from 'react';
-import MovieDetails from '../../components/MovieDetails/MovieDetails'
-import GoBackBtn from '../../components/GoBackBtn/GoBackBtn.jsx';
- 
+
 
 function MovieDetailsPage() {
     const [isFetching, setIsFetching] = useState(false);

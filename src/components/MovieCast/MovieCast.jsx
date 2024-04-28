@@ -2,9 +2,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchMovieCast } from '../../Js/api';
-import Loader from '../../components/Loader/Loader';
-import ErrorMessage from '../../components/ErrorMassage/ErrorMassage';
-import CastMemberCard from '../../components/CastMemberCard/CastMemberCard'
+import { CastMemberCard, ErrorMessage, Loader } from '../index';
 import css from './MovieCast.module.css';
 
 function MovieCast() {

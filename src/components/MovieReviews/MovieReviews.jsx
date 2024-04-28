@@ -1,7 +1,5 @@
 import { fetchMovieReviews } from '../../Js/api';
-import Loader from '../../components/Loader/Loader';
-import ErrorMessage from '../../components/ErrorMassage/ErrorMassage';
-import MovieReviewsList from '../MovieReviewsList/MovieReviewsList';
+import { MovieReviewsList, ErrorMessage, Loader } from '../index';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 

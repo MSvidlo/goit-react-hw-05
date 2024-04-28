@@ -1,8 +1,5 @@
 import { fetchPopularMovies } from '../../Js/api';
-import LoadMoreBtn from '../../components/LoadMoreBtn/LoadMoreBtn';
-import Loader from '../../components/Loader/Loader';
-import MovieList from '../../components/MovieList/MovieList';
-import ErrorMessage from '../../components/ErrorMassage/ErrorMassage';
+import { MovieList, ErrorMessage, Loader,LoadMoreBtn} from '../../components/index';
 import css from './HomePage.module.css';
 import { useState, useEffect} from 'react';
 function HomePage() {
